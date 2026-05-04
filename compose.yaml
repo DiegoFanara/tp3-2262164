@@ -179,10 +179,8 @@ services:
         condition: service_healthy
     labels:
       - 'traefik.enable=true'
-      # Même domaine que le frontend, mais filtre sur le préfixe /api
       - 'traefik.http.routers.blogverse-api.rule=Host(`blogverse.${MY_DOMAIN}`) && PathPrefix(`/api`)'
       - 'traefik.http.routers.blogverse-api.entryPoints=websecure'
-      # Priorité plus haute que le frontend pour être évalué en premier
       - 'traefik.http.routers.blogverse-api.priority=10'
       - 'traefik.http.services.blogverse-api.loadbalancer.server.port=3000'
       - 'traefik.http.routers.blogverse-api.service=blogverse-api'
