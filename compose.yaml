@@ -161,6 +161,7 @@ services:
   blogverse-backend:
     image: diegofanara/tp2-2262164-blogverse-backend:${BACKEND_VERSION:-latest}
     container_name: blogverse-backend
+    hostname: backend
     restart: unless-stopped
     networks:
       - cloud
